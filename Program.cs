@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: DevelopmentCorsPolicy,
-                      policy  =>
+                      policy =>
                       {
                           policy.WithOrigins("http://localhost:5173")
                           .AllowAnyHeader()
@@ -35,7 +35,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => new {message = "ASP NET API is Running..."});
-app.MapGet("/status", () => new {message = "ASP NET API is Running...", status = true});
+app.MapGet("/", () => new { message = "ASP NET API is Running..." });
+app.MapGet("/status", () => new { message = "ASP NET API is Running...", status = true });
 
 app.Run();
