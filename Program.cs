@@ -35,6 +35,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => "Hello world!");
+app.MapGet("/", () => new {message = "ASP NET API is Running..."});
+app.MapGet("/status", () => new {message = "ASP NET API is Running...", status = true});
 
 app.Run();
