@@ -2,12 +2,6 @@
 
 the api to help with job applications and stuff.
 
-# Map Timeline
-
-10-20: App creation
-10-23: Hello world, cors, API endpoints accessible, docker
-11-02: postgreSQL tables
-
 ### what next
 
 Understand the request lifecycle: Program.cs → controller → response.
@@ -16,3 +10,9 @@ Learn dependency injection and move business logic into a service.
 Add Entity Framework Core to connect to a database.
 Introduce DTOs and validation so your API doesn't expose database entities directly.
 Add authentication, testing, and pagination once the basic API is working.
+
+# Map Timeline
+
+10-20: App creation
+10-23: Hello world, cors, API endpoints accessible, docker
+11-02: postgreSQL tables
