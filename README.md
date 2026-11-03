@@ -11,8 +11,8 @@ Add Entity Framework Core to connect to a database.
 Introduce DTOs and validation so your API doesn't expose database entities directly.
 Add authentication, testing, and pagination once the basic API is working.
 
-# Map Timeline
+# Work Timeline
 
-10-20: App creation
-10-23: Hello world, cors, API endpoints accessible, docker
-11-02: postgreSQL tables
+- 10-20: App creation
+- 10-23: Hello world, cors, API endpoints accessible, docker
+- 11-02: postgreSQL tables
