@@ -11,7 +11,17 @@ Add Entity Framework Core to connect to a database.
 Introduce DTOs and validation so your API doesn't expose database entities directly.
 Add authentication, testing, and pagination once the basic API is working.
 
-###
+### Project Architecture
+
+Code is organized around business capabilities, separating HTTP handling, business rules, and database operations.
+I have implemented a feature based architecture.
+
+#### Backend request lifecycle
+
+1. Controller (HTTP Layer): Receives request, validates, returns HTTP response
+2. Service (Business Logic Layer): Applies business rules, handles application logic, coordinates operations.
+3. DbContext (Data Access Layer): Uses Entity Framework Core to query and modify PostgreSQL.
+4. PostgreSQL (Database Layer): Persists data.
 
 ### Work Timeline
 
