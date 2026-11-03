@@ -13,6 +13,7 @@ Add authentication, testing, and pagination once the basic API is working.
 
 # Work Timeline
 
-- 10-20: App creation
-- 10-23: Hello world, cors, API endpoints accessible, docker
-- 11-02: postgreSQL tables
+- [x] Server Hosting
+- [x] CORS configuration: HTTP Communication
+- [x] Docker Container configuration: compose files, volumes, PostgreSQL server hosting
+- [x] Create PostgreSQL tables: pgAdmin, SQL queries, define database schemas
