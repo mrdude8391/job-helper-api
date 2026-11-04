@@ -14,7 +14,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         entity.Property(u => u.Id)
             .HasColumnName("id")
-            .ValueGeneratedOnAdd();
+            .HasDefaultValueSql("gen_random_uuid()");
 
         entity.Property(u => u.Email)
             .HasColumnName("email")
