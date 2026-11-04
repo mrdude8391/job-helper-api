@@ -7,11 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-// Register Database connection
-// builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(
-//     builder.Configuration.GetConnectionString("DefaultConnection")
-// ));
-
 // Add CORS policy.
 builder.Services.AddCors(options =>
 {
@@ -23,6 +18,12 @@ builder.Services.AddCors(options =>
                           .AllowAnyMethod();
                       });
 });
+
+// Register Database connection
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+));
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -45,5 +46,22 @@ app.MapControllers();
 
 app.MapGet("/", () => new { message = "ASP NET API is Running..." });
 app.MapGet("/status", () => new { message = "ASP NET API is Running...", status = true });
+app.MapGet("/api/health/database", async (AppDbContext db) =>
+{
+    var connected = await db.Database.CanConnectAsync();
+
+    if (!connected)
+    {
+        return Results.Problem(
+            "Could not connect to the database.",
+            statusCode: 503
+        );
+    }
+
+    return Results.Ok(new
+    {
+        message = "Successfully connected to PostgreSQL!"
+    });
+});
 
 app.Run();
