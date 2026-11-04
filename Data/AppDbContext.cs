@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace job_helper_api.Data;
+namespace JobHelper.Data;
 
 public class AppDbContext : DbContext
 {
