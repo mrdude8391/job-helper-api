@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>job_helper_api</RootNamespace>
+    <UserSecretsId>7d253cb1-9aff-4503-84f0-fbbb4daf4cfc</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
