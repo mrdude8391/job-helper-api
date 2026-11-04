@@ -45,7 +45,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapGet("/", () => new { message = "ASP NET API is Running..." });
-app.MapGet("/status", () => new { message = "ASP NET API is Running...", status = true });
+app.MapGet("/api/health/status", () => new { message = "ASP NET API is Running...", status = true });
 app.MapGet("/api/health/database", async (AppDbContext db) =>
 {
     var connected = await db.Database.CanConnectAsync();
