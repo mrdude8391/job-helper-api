@@ -32,7 +32,6 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         entity.Property(u => u.CreatedAt)
             .HasColumnName("createdAt")
             .HasColumnType("timestamp with time zone")
-            .HasDefaultValueSql("CURRENT_TIMESTAMP")
-            .ValueGeneratedOnAdd();
+            .HasDefaultValueSql("NOW()");
     }
 }
