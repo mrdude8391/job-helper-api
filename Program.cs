@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using JobHelper.Api.Data;
 
 var DevelopmentCorsPolicy = "_developmentCorsPolicy";
 
