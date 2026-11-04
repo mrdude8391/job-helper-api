@@ -20,6 +20,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasColumnName("email")
             .HasMaxLength(255)
             .IsRequired();
+
         entity.HasIndex(u => u.Email)
             .IsUnique();
 
