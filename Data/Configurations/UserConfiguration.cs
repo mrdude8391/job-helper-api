@@ -14,7 +14,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         entity.Property(u => u.Id)
             .HasColumnName("id")
-            .ValueGeneratedNever();
+            .ValueGeneratedOnAdd();
 
         entity.Property(u => u.Email)
             .HasColumnName("email")
