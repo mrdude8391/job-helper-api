@@ -24,7 +24,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .IsUnique();
 
         entity.Property(u => u.PasswordHash)
-            .HasColumnName("passwordHash")
+            .HasColumnName("passwordhash")
             .HasMaxLength(255)
             .IsRequired();
 
