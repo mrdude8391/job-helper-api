@@ -1,8 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+
 var DevelopmentCorsPolicy = "_developmentCorsPolicy";
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// Register Database connection
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(
+    builder.Configuration.GetConnectionString("DefaultConnection")
+));
 
 // Add CORS policy.
 builder.Services.AddCors(options =>
