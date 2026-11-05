@@ -4,4 +4,4 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace JobHelper.Api.Data.Configurations;
 
-public class CompaniesConfiguration : IEntityTypeConfiguration<Companies>
+public class CompaniesConfiguration : IEntityTypeConfiguration<Company>
