@@ -2,6 +2,21 @@
 
 the api to help with job applications and stuff.
 
+### CLI Commands
+
+```powershell
+# Run
+dotnet run
+dotnet watch run  # With HMR feature
+```
+
+```powershell
+# Database Migrations
+dotnet ef migrations add	# Generate a migration from model changes
+dotnet ef database update	# Apply migrations to your database
+dotnet ef migrations list   # List migrations in your project
+```
+
 ### what next
 
 Understand the request lifecycle: Program.cs → controller → response.
