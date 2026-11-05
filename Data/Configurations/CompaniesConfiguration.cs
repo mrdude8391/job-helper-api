@@ -12,6 +12,10 @@ public class CompaniesConfiguration : IEntityTypeConfiguration<Company>
 
         entity.HasKey(c => c.Id);
 
+        entity.Property(c => c.Id)
+            .HasColumnName("id")
+            .HasDefaultValueSql("gen_random_uuid()");
+
         entity.Property(c => c.Name)
             .HasColumnName("name")
             .HasMaxLength(200)
@@ -19,7 +23,6 @@ public class CompaniesConfiguration : IEntityTypeConfiguration<Company>
 
         entity.Property(c => c.Website)
             .HasColumnName("website")
-            .HasMaxLength(300)
-            .IsRequired();
+            .HasMaxLength(300);
     }
 }
