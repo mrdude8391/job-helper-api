@@ -19,7 +19,7 @@ public class CompaniesConfiguration : IEntityTypeConfiguration<Company>
 
         entity.Property(c => c.Website)
             .HasColumnName("website")
-            .HasMaxLength(500)
+            .HasMaxLength(300)
             .IsRequired();
     }
 }
