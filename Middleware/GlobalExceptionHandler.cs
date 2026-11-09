@@ -17,6 +17,7 @@ public sealed class GlobalExceptionHandler(
         var (statusCode, title) = exception switch
         {
             NotFoundException => (StatusCodes.Status404NotFound, "Not Found"),
+            ConflictException => (StatusCodes.Status409Conflict, "Conflict"),
             _ => (StatusCodes.Status500InternalServerError, "Server Error")
         };
 
