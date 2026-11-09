@@ -14,3 +14,7 @@ Accept: application/json
 ###
 GET {{job_helper_api_HostAddress}}/api/debug/not-found
 Accept: application/json
+
+###
+GET {{job_helper_api_HostAddress}}/api/debug/500
+Accept: application/json
