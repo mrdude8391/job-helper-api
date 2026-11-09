@@ -25,20 +25,16 @@ public class GlobalExceptionHandler(
         {
             logger.LogError(
                 exception,
-                "Unhandled exception for {Method}, {Path}",
+                "Unhandled exception for {Method} {Path}",
                 httpContext.Request.Method, httpContext.Request.Path
             );
         }
 
         // Choose detail text
-        var detail = statusCode ==
-        StatusCodes.Status500InternalServerError
-            ? "An unexpected error occurred."
-            : exception.Message;
+        var detail = statusCode == StatusCodes.Status500InternalServerError ? "An unexpected error occurred." : exception.Message;
 
         // Return a consistent ProblemDetails response.
         httpContext.Response.StatusCode = statusCode;
-
 
         return await problemDetailsService.TryWriteAsync(new ProblemDetailsContext
         {
