@@ -8,7 +8,6 @@ dotnet EF Core CLI tool for handing migrations.
 
 ```powershell
 dotnet tool install --global dotnet-ef
-
 ```
 
 ### CLI Commands
