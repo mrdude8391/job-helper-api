@@ -4,3 +4,10 @@ GET {{job_helper_api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+GET {{job_helper_api_HostAddress}}//api/health/status
+Accept: application/json
+
+###
+GET {{job_helper_api_HostAddress}}//api/health/database
+Accept: application/json
+
