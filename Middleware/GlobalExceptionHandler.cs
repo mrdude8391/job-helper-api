@@ -33,7 +33,7 @@ public class GlobalExceptionHandler(
         // Choose detail text
         var detail = statusCode ==
         StatusCodes.Status500InternalServerError
-            ? "An unexpected error occured"
+            ? "An unexpected error occurred."
             : exception.Message;
 
         // Return a consistent ProblemDetails response.
