@@ -7,6 +7,6 @@ CREATE TABLE users (
 
 CREATE TABLE companies (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    name VARCHAR(200) NOT NULL,
-    website VARCHAR(300)
+    name VARCHAR(255) NOT NULL,
+    website VARCHAR(500)
 );
