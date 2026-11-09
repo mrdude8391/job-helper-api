@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using job_helper_api.Data;
 using job_helper_api.Middleware;
+using job_helper_api.Common.Exceptions;
 
 var DevelopmentCorsPolicy = "_developmentCorsPolicy";
 
@@ -42,6 +43,8 @@ app.UseExceptionHandler();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapGet("/api/debug/not-found", () => { throw new NotFoundException("Thing", 42); });
+
 }
 app.UseHttpsRedirection();
 app.UseCors(DevelopmentCorsPolicy);
