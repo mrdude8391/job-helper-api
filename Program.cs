@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using job_helper_api.Data;
+using job_helper_api.Middleware;
 
 var DevelopmentCorsPolicy = "_developmentCorsPolicy";
 
@@ -26,6 +27,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     )
     .UseSnakeCaseNamingConvention());
 
+// Register Global Exception Handler
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -37,12 +42,10 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
+app.UseExceptionHandler();
 app.UseHttpsRedirection();
-
 app.UseCors(DevelopmentCorsPolicy);
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.MapGet("/", () => new { message = "ASP NET API is Running..." });
