@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace job_helper_api.Middleware;
 
-public class GlobalExceptionHandler(
+public sealed class GlobalExceptionHandler(
     IProblemDetailsService problemDetailsService,
     ILogger<GlobalExceptionHandler> logger) : IExceptionHandler
 {
