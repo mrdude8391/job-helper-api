@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using JobHelper.Api.Data;
+using job_helper_api.Data;
 
 var DevelopmentCorsPolicy = "_developmentCorsPolicy";
 

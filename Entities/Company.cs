@@ -1,4 +1,4 @@
-namespace JobHelper.Api.Entities;
+namespace job_helper_api.Entities;
 
 public class Company
 {

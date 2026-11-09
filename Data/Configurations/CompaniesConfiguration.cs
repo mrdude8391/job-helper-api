@@ -1,8 +1,8 @@
-using JobHelper.Api.Entities;
+using job_helper_api.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace JobHelper.Api.Data.Configurations;
+namespace job_helper_api.Data.Configurations;
 
 public class CompaniesConfiguration : IEntityTypeConfiguration<Company>
 {
