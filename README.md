@@ -4,7 +4,7 @@ the api to help with job applications and stuff.
 
 ### Dependencies
 
-dotnet EF Core CLI tool
+dotnet EF Core CLI tool for handing migrations.
 
 ```powershell
 dotnet tool install --global dotnet-ef
