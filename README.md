@@ -2,6 +2,15 @@
 
 the api to help with job applications and stuff.
 
+### Dependencies
+
+dotnet EF Core CLI tool
+
+```powershell
+dotnet tool install --global dotnet-ef
+
+```
+
 ### CLI Commands
 
 ```powershell
