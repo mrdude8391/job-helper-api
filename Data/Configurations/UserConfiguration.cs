@@ -8,29 +8,23 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> entity)
     {
-        entity.ToTable("users");
-
         entity.HasKey(u => u.Id);
 
         entity.Property(u => u.Id)
-            .HasColumnName("id")
             .HasDefaultValueSql("gen_random_uuid()");
 
         entity.Property(u => u.Email)
-            .HasColumnName("email")
             .HasMaxLength(255)
             .IsRequired();
 
         entity.HasIndex(u => u.Email)
             .IsUnique();
 
-        entity.Property(u => u.Password_Hash)
-            .HasColumnName("password_hash")
+        entity.Property(u => u.PasswordHash)
             .HasMaxLength(255)
             .IsRequired();
 
-        entity.Property(u => u.Created_At)
-            .HasColumnName("created_at")
+        entity.Property(u => u.CreatedAt)
             .HasColumnType("timestamp with time zone")
             .HasDefaultValueSql("NOW()");
     }
