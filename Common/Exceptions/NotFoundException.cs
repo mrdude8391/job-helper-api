@@ -1,16 +1,11 @@
 
-namespace job_helper_api.Exceptions;
+namespace job_helper_api.Common.Exceptions;
 
 public class NotFoundException : Exception
 {
-    private string message;
     public NotFoundException(string resource, object key)
+    : base($"{resource} '{key}' was not found.")
     {
-        message = $"{resource} {key} was not found";
     }
 
-    public string GetMessage()
-    {
-        return message;
-    }
 }
