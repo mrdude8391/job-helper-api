@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
                       });
 });
 
-// Register Database connection
+// Register Database connection, DB Context default lifecycle is scoped.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection")
