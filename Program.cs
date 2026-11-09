@@ -36,13 +36,13 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+app.UseExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-app.UseExceptionHandler();
 app.UseHttpsRedirection();
 app.UseCors(DevelopmentCorsPolicy);
 app.UseAuthorization();
