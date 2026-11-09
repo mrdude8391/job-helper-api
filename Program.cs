@@ -44,6 +44,7 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.MapGet("/api/debug/not-found", () => { throw new NotFoundException("Thing", 42); });
+    app.MapGet("/api/debug/500", () => { throw new Exception("secret db password"); });
 
 }
 app.UseHttpsRedirection();
