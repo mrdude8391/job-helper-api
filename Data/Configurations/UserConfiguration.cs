@@ -29,8 +29,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasMaxLength(255)
             .IsRequired();
 
-        entity.Property(u => u.CreatedAt)
-            .HasColumnName("createdAt")
+        entity.Property(u => u.Created_At)
+            .HasColumnName("created_at")
             .HasColumnType("timestamp with time zone")
             .HasDefaultValueSql("NOW()");
     }
