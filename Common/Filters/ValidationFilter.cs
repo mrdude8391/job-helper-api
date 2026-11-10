@@ -2,18 +2,18 @@ using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace job_helper_api.Common.Filters;
 /// <summary>
 /// This filter will run before every controller action. 
 /// This filter will validate the DTO arguments before they touch the controllers
 /// </summary>
-public class ValidationAsyncFilter : IAsyncActionFilter
+public class ValidationFilter(ProblemDetailsFactory problemDetailsFactory) : IAsyncActionFilter
 {
     public async Task OnActionExecutionAsync(
         ActionExecutingContext context, ActionExecutionDelegate next)
     {
-        // Do something before the action executes.
         // A. Get the arguments provided to the controller, ie. the DTO, Action filter runs after model binding.
         foreach (var argument in context.ActionArguments.Values)
         {
@@ -43,21 +43,15 @@ public class ValidationAsyncFilter : IAsyncActionFilter
 
         if (!context.ModelState.IsValid)
         {
-            var problemDetails = new ValidationProblemDetails(context.ModelState)
-            {
-                Status = StatusCodes.Status400BadRequest,
-                Title = "One or more validation errors occurred."
-            };
+            var problemDetails = problemDetailsFactory.CreateValidationProblemDetails(context.HttpContext, context.ModelState);
 
             context.Result = new ObjectResult(problemDetails)
             {
                 StatusCode = StatusCodes.Status400BadRequest
             };
-
             return;
         }
 
         await next();
-        // Do something after the action executes.
     }
 }
