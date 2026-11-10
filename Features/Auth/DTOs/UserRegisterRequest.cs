@@ -4,5 +4,4 @@ public sealed record UserRegisterRequest(
     string Email,
     string Password,
     string ConfirmPassword
-)
-{ }
+);
