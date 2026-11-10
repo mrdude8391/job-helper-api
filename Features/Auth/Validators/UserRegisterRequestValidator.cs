@@ -3,10 +3,11 @@ using job_helper_api.Features.Auth.DTOs;
 
 namespace job_helper_api.Features.Auth.Validators;
 
-public class UserRegisterValidator : AbstractValidator<UserRegisterRequest>
+public class UserRegisterRequestValidator : AbstractValidator<UserRegisterRequest>
 {
-    public UserRegisterValidator()
+    public UserRegisterRequestValidator()
     {
+        RuleLevelCascadeMode = CascadeMode.Stop;
         // Email Validation
         RuleFor(x => x.Email)
             .NotEmpty()
@@ -15,7 +16,6 @@ public class UserRegisterValidator : AbstractValidator<UserRegisterRequest>
 
         // Password Validation
         RuleFor(x => x.Password)
-            .Cascade(CascadeMode.Stop)
             .NotEmpty()
                 .WithMessage("Password is required.")
             .MinimumLength(8)
@@ -25,7 +25,6 @@ public class UserRegisterValidator : AbstractValidator<UserRegisterRequest>
 
         // Confirm Password
         RuleFor(x => x.ConfirmPassword)
-            .Cascade(CascadeMode.Stop)
             .NotEmpty()
                 .WithMessage("Please confirm password.")
             .Equal(x => x.Password)
