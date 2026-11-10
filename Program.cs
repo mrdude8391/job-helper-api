@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using job_helper_api.Data;
 using job_helper_api.Middleware;
-using job_helper_api.Features.Auth.Validators;
 using FluentValidation;
 using job_helper_api.Common.Filters;
 
@@ -35,7 +34,7 @@ builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 // Add Validators
-builder.Services.AddValidatorsFromAssemblyContaining<UserRegisterRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.Services.AddControllers(options =>
 {

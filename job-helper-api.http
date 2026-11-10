@@ -7,3 +7,21 @@ Accept: application/json
 ###
 GET {{job_helper_api_HostAddress}}/api/health/database
 Accept: application/json
+
+### TEMPORARY (remove with DebugController) - Invalid: expect 400 with Email, Password, ConfirmPassword errors
+POST {{job_helper_api_HostAddress}}/api/debug/register
+Content-Type: application/json
+
+{ "email": "bad", "password": "123", "confirmPassword": "456" }
+
+### TEMPORARY - Valid: expect 200 echoing the request
+POST {{job_helper_api_HostAddress}}/api/debug/register
+Content-Type: application/json
+
+{ "email": "me@test.com", "password": "longenough1", "confirmPassword": "longenough1" }
+
+### TEMPORARY - Malformed JSON: expect 400 from ASP.NET's built-in check
+POST {{job_helper_api_HostAddress}}/api/debug/register
+Content-Type: application/json
+
+{ "email":
