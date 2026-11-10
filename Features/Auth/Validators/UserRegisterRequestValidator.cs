@@ -8,6 +8,7 @@ public class UserRegisterRequestValidator : AbstractValidator<UserRegisterReques
     public UserRegisterRequestValidator()
     {
         RuleLevelCascadeMode = CascadeMode.Stop;
+
         // Email Validation
         RuleFor(x => x.Email)
             .NotEmpty()
