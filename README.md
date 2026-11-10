@@ -44,6 +44,7 @@ I have implemented a feature based architecture.
 - [x] CORS configuration: HTTP Communication
 - [x] Docker Container configuration: compose files, volumes, PostgreSQL server hosting
 - [x] Create PostgreSQL tables: pgAdmin, SQL queries, define database schemas
-- [ ] Setup database operations: Entity Framework
+- [x] Setup database operations: Entity Framework
+- [x] Setup EF Core migrations
 - [ ] Create Authentication feature: DTOs, Validation, JWTs
 - [ ] Create Job applications feature: CRUD, pagination
