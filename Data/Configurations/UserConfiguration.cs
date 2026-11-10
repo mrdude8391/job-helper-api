@@ -1,23 +1,19 @@
-using JobHelper.Api.Entities;
+using job_helper_api.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace JobHelper.Api.Data.Configurations;
+namespace job_helper_api.Data.Configurations;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> entity)
     {
-        entity.ToTable("users");
-
         entity.HasKey(u => u.Id);
 
         entity.Property(u => u.Id)
-            .HasColumnName("id")
             .HasDefaultValueSql("gen_random_uuid()");
 
         entity.Property(u => u.Email)
-            .HasColumnName("email")
             .HasMaxLength(255)
             .IsRequired();
 
@@ -25,12 +21,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .IsUnique();
 
         entity.Property(u => u.PasswordHash)
-            .HasColumnName("passwordhash")
             .HasMaxLength(255)
             .IsRequired();
 
         entity.Property(u => u.CreatedAt)
-            .HasColumnName("createdAt")
             .HasColumnType("timestamp with time zone")
             .HasDefaultValueSql("NOW()");
     }

@@ -1,4 +1,4 @@
-INSERT INTO users (email, passwordHash)
+INSERT INTO users (email, password_hash)
 VALUES (
 	'test@example.com',
 	'placeholder_hash_test'

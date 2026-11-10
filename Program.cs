@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using JobHelper.Api.Data;
+using job_helper_api.Data;
+using job_helper_api.Middleware;
+using job_helper_api.Common.Exceptions;
 
 var DevelopmentCorsPolicy = "_developmentCorsPolicy";
 
@@ -19,29 +21,32 @@ builder.Services.AddCors(options =>
                       });
 });
 
-// Register Database connection
+// Register Database connection, DB Context default lifecycle is scoped.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection")
-));
+    )
+    .UseSnakeCaseNamingConvention());
+
+// Register Global Exception Handler
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+app.UseExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
 app.UseHttpsRedirection();
-
 app.UseCors(DevelopmentCorsPolicy);
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.MapGet("/", () => new { message = "ASP NET API is Running..." });

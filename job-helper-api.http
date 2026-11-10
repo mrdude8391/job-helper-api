@@ -1,6 +1,9 @@
 @job_helper_api_HostAddress = http://localhost:5062
 
-GET {{job_helper_api_HostAddress}}/weatherforecast/
+###
+GET {{job_helper_api_HostAddress}}/api/health/status
 Accept: application/json
 
 ###
+GET {{job_helper_api_HostAddress}}/api/health/database
+Accept: application/json
