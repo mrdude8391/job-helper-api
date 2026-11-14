@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using job_helper_api.Data;
 using job_helper_api.Middleware;
-using job_helper_api.Common.Exceptions;
+using FluentValidation;
+using job_helper_api.Common.Filters;
 
 var DevelopmentCorsPolicy = "_developmentCorsPolicy";
 
@@ -32,7 +33,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
-builder.Services.AddControllers();
+// Add Validators
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ValidationFilter>();
+    options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
+});
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
