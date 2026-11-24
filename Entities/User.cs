@@ -1,7 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace job_helper_api.Entities;
 
 public class User
 {
+    public User(string email, string passwordHash)
+    {
+        Email = email;
+        PasswordHash = passwordHash;
+    }
     public Guid Id { get; set; }
     public string Email { get; set; } = string.Empty;
     public string PasswordHash { get; set; } = string.Empty;

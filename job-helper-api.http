@@ -8,6 +8,14 @@ Accept: application/json
 GET {{job_helper_api_HostAddress}}/api/health/database
 Accept: application/json
 
+###
+POST {{job_helper_api_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{ "email": "test@gmail.com", "password": "123", "confirmPassword": "123" }
+
+
+
 ### TEMPORARY (remove with DebugController) - Invalid: expect 400 with Email, Password, ConfirmPassword errors
 POST {{job_helper_api_HostAddress}}/api/debug/register
 Content-Type: application/json
@@ -25,3 +33,4 @@ POST {{job_helper_api_HostAddress}}/api/debug/register
 Content-Type: application/json
 
 { "email":
+
