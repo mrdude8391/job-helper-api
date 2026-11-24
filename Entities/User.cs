@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace job_helper_api.Entities;
 
 public class User

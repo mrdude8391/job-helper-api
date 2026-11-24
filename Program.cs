@@ -57,12 +57,12 @@ app.UseExceptionHandler();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 app.UseHttpsRedirection();
 app.UseCors(DevelopmentCorsPolicy);
 app.UseAuthorization();
 app.MapControllers();
-app.MapScalarApiReference();
 
 app.MapGet("/", () => new { message = "ASP NET API is Running..." });
 app.MapGet("/api/health/status", () => new { message = "ASP NET API is Running...", status = true });
