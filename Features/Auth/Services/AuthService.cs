@@ -5,7 +5,7 @@ using job_helper_api.Features.Auth.DTOs;
 using job_helper_api.Features.Auth.Utils;
 using Microsoft.EntityFrameworkCore;
 
-namespace job_helper_api.Features.Auth;
+namespace job_helper_api.Features.Auth.Services;
 
 public class AuthService(AppDbContext db, IPasswordHasher passwordHasher) : IAuthService
 {

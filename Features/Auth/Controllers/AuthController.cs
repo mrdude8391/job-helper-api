@@ -1,7 +1,8 @@
 using job_helper_api.Features.Auth.DTOs;
+using job_helper_api.Features.Auth.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace job_helper_api.Features.Auth;
+namespace job_helper_api.Features.Auth.Controllers;
 
 [ApiController]
 [Route("api/auth")]

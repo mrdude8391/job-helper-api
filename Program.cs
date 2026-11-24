@@ -6,6 +6,9 @@ using job_helper_api.Common.Filters;
 using Scalar.AspNetCore;
 using job_helper_api.Features.Auth.Utils;
 using job_helper_api.Features.Auth;
+using job_helper_api.Features.Auth.Services;
+using job_helper_api.Features.Auth.Options;
+using job_helper_api.Features.Auth.Validators;
 
 var DevelopmentCorsPolicy = "_developmentCorsPolicy";
 var builder = WebApplication.CreateBuilder(args);
@@ -35,9 +38,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
-// Add Validators
+// Add Validators found in this assembly
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
+// Add Controllers
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add<ValidationFilter>();
@@ -45,6 +49,12 @@ builder.Services.AddControllers(options =>
 });
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Add Options
+builder.Services.AddOptions<JwtOptions>()
+    .Bind(builder.Configuration.GetSection(JwtOptions.SectionName))
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
 
 // Add Services
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
